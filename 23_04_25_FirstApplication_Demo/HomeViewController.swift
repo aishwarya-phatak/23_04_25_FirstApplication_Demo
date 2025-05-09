@@ -8,22 +8,48 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var nameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        print("View Did Load of HomeViewController called")
+        initViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func initViews(){
+        self.welcomeLabel.text = "Welcome to Bitcode!"
+        self.messageLabel.text = "iOS April 2025"
     }
-    */
+    
+    @IBAction func btnSubmitClicked(_ sender: Any) {
+        let extractedName = self.nameTextField.text
+        self.welcomeLabel.text = "Welcome \(extractedName!)"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("View Will Appear of HomeViewController called")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("View Did Appear of HomeViewController called")
+    }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        print("View Will Disappear of HomeViewController called")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("View Did DisAppear of HomeViewController called")
+    }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        print("View Is Appearing of HomeViewController called")
+    }
+    
+    override func didReceiveMemoryWarning() {
+        
+    }
 }
